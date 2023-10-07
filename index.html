@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Kalam&display=swap"
+      rel="stylesheet"
+    />
+    <title>You</title>
+  </head>
+  <body>
+    <div id="intro-container">
+      <h2 id="intro"></h2>
+    </div>
+    <div class="grid-spotify">
+      <a href="https://spotify.link/HAjWiel8HDb" target="_blank"
+        ><img src="assets/img/spotify white black.jpg" class="spotify" alt=""
+      /></a>
+      <div id="below-img">
+        <h3>Random playlist that suits me, might suit you</h3>
+        <h3 style="color: rgb(121, 105, 105)">Icons are clickable!</h3>
+      </div>
+      <div id="letter-container">
+        <img src="assets/img/letter.png" alt="" id="letter" class="letter" />
+      </div>
+      <div id="replacement-image-container">
+        <img
+          src="assets/img/audio.png"
+          alt=""
+          id="replacement-image"
+          class="replacement-image"
+        />
+      </div>
+      <div id="found">
+        <h3>Found this lol</h3>
+      </div>
+      <div id="pic">
+        <img id="the-pic" class="fade-in-pic" src="assets/img/pic.jpg" alt="" />
+      </div>
+    </div>
+
+    <script>
+      const letterImage = document.getElementById("letter");
+      const replacementImage = document.getElementById("replacement-image");
+      var song = new Audio("assets/audio/hbd.mp3");
+
+      letterImage.addEventListener("click", () => {
+        letterImage.style.transition = "transform 2s ease, opacity 1s ease";
+        letterImage.style.transform = "translateY(100%)";
+        letterImage.style.opacity = "0";
+
+        // Remove the fly-out class after the fly-out animation
+        setTimeout(() => {
+          letterImage.classList.remove("fly-out");
+        }, 2000);
+
+        // Add the fly-in class to animate the replacement image
+        setTimeout(() => {
+          replacementImage.style.animation = "fly-in 2s";
+          replacementImage.style.opacity = "1";
+        }, 2000);
+
+        song.play();
+
+        // Add the fly-in class to animate the replacement image
+        setTimeout(() => {
+          replacementImage.classList.add("fly-in");
+          replacementImage.style.opacity = "1";
+        }, 2000);
+      });
+    </script>
+    <script>
+      // script.js
+      const letter = document.getElementById("letter");
+      const thePic = document.getElementById("the-pic");
+      const found = document.getElementById("found");
+
+      letter.addEventListener("click", () => {
+        thePic.style.transition = "opacity 45s"; // Use a 10s transition for a slow fade-in
+        thePic.style.opacity = "1";
+        found.style.transition = "opacity 3s";
+        found.style.opacity = "1";
+      });
+    </script>
+  </body>
+</html>
